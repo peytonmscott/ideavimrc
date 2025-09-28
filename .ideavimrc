@@ -61,8 +61,8 @@ map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
 " Android Device Manager
-map <leader>da <action>(Android.DeviceManager)
-map <leader>dm <action>(Android.DeviceManager2)
+map <leader>dr <action>(ActivateRunningDevicesToolWindow)
+map <leader>dm <action>(Android.Device)
 
 " Display Options
 map <leader>dd <action>(ToggleDistractionFreeMode)
