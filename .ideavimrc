@@ -1,0 +1,186 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" ============================================================================
+"" BASIC VIM SETTINGS
+"" ============================================================================
+
+" Show a few lines of context around the cursor
+set scrolloff=5
+
+" Do incremental searching
+set incsearch
+
+" Set relative line numbers
+set relativenumber
+
+" Set copy buffer to system
+set clipboard+=unnamed
+
+" Uncomment for listing actionsids
+" set trackactionids
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+"" ============================================================================
+"" WHICH-KEY CONFIGURATION
+"" ============================================================================
+
+" Enable which-key
+set which-key
+set timeoutlen=5000
+
+" Which-key styling
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+"" ============================================================================
+"" LEADER KEY SETUP
+"" ============================================================================
+
+" Leader key is space
+let mapleader = " "
+
+"" ============================================================================
+"" KEY MAPPINGS
+"" ============================================================================
+
+" File Explorer
+map <leader>x :NERDTreeToggle<CR>
+
+" IdeaVim Reload
+map <leader>vr <action>(IdeaVim.ReloadVimRc.reload)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" Android Device Manager
+map <leader>da <action>(Android.DeviceManager)
+map <leader>dm <action>(Android.DeviceManager2)
+
+" Display Options
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Go To Code Navigation
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gu <Action>(ShowUsages)
+map <leader>gt <Action>(GotoTest)
+map <leader>gf <Action>(Back)
+map <leader>gb <Action>(Forward)
+
+" Run
+map <leader>r <Action>(Run)
+
+" File Navigation
+map <leader>sf <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader>fl <action>(RecentLocations)
+
+" Window Splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Tool Windows
+map <leader>t <action>(ActivateTerminalToolWindow)
+map <leader>l <action>(ActivateLogcatToolWindow)<C-o>:action FocusEditor<CR>
+map <leader>gc <action>(copilot.chat.show)
+map <leader>hw <action>(HideActiveWindow)
+map <leader>ha <action>(HideAllWindows)
+
+" Popup Navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+"" ============================================================================
+"" IDEAVIM PLUGINS
+"" ============================================================================
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'justinmk/vim-sneak'
+Plug 'preservim/nerdtree'
+
+"" ============================================================================
+"" WHICH-KEY DESCRIPTIONS
+"" ============================================================================
+
+" Leader Key
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+" File Explorer
+let g:WhichKeyDesc_explorer = "<leader>x Toggle file explorer"
+
+" IdeaVim Reload
+let g:WhichKeyDesc_vimrc = "<leader>vr Reload IdeaVim config"
+
+" Actions
+let g:WhichKeyDesc_action = "<leader>a Actions"
+let g:WhichKeyDesc_action_menu = "<leader>am Show intention actions"
+let g:WhichKeyDesc_action_search = "<leader>as Search everywhere"
+
+" GitHub
+let g:WhichKeyDesc_github = "<leader>g GitHub"
+let g:WhichKeyDesc_github_copilot = "<leader>gc GitHub Copilot chat"
+
+" Hide Windows
+let g:WhichKeyDesc_hide = "<leader>h Hide windows"
+let g:WhichKeyDesc_hide_window = "<leader>hw Hide active window"
+let g:WhichKeyDesc_hide_all = "<leader>ha Hide all windows"
+
+" Android Device Manager
+let g:WhichKeyDesc_android = "<leader>d Android tools"
+let g:WhichKeyDesc_android_manager = "<leader>da Device manager (old)"
+let g:WhichKeyDesc_android_manager2 = "<leader>dm Device manager"
+
+" Display Options
+let g:WhichKeyDesc_display = "<leader> Display modes"
+let g:WhichKeyDesc_display_distraction = "<leader>dd Distraction-free mode"
+let g:WhichKeyDesc_display_zen = "<leader>dz Zen mode"
+let g:WhichKeyDesc_display_fullscreen = "<leader>df Full screen"
+
+" Go To Code Navigation
+let g:WhichKeyDesc_goto = "<leader>g Go to"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Definition"
+let g:WhichKeyDesc_goto_type = "<leader>gy Type definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Test"
+let g:WhichKeyDesc_goto_back = "<leader>gf Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gb Forward"
+
+" Run
+let g:WhichKeyDesc_run = "<leader>r Run"
+
+" File Navigation
+let g:WhichKeyDesc_search = "<leader>s Search"
+let g:WhichKeyDesc_search_goto_file = "<leader>sf Go to file"
+let g:WhichKeyDesc_file = "<leader>f Files"
+let g:WhichKeyDesc_file_recent = "<leader>fr Recent files"
+let g:WhichKeyDesc_file_content = "<leader>fc Find in files"
+let g:WhichKeyDesc_file_locations = "<leader>fl Recent locations"
+
+" Window Splits
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_vertical = "<leader>wv Vertical split"
+let g:WhichKeyDesc_window_horizontal = "<leader>ws Horizontal split"
+let g:WhichKeyDesc_window_unsplit = "<leader>wu Close split"
+let g:WhichKeyDesc_window_move = "<leader>wm Move to opposite"
+
+" Tool Windows
+let g:WhichKeyDesc_tools = "<leader> Tool windows"
+let g:WhichKeyDesc_tools_terminal = "<leader>t Terminal"
+let g:WhichKeyDesc_tools_logcat = "<leader>l Logcat"
+let g:WhichKeyDesc_tools_hide = "<leader>h Hide windows"
